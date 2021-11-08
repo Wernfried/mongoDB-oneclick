@@ -21,6 +21,8 @@ Run `Stop.bat`, `Drop.bat`, `Start.bat` and `Deploy.bat` from according sub fold
 `.bat` files are Window Batch files. This repository is mainly intended for learning, testing and developing purpose.
 Of course, feel free to use the config files as base for your production environment.
 
+Script will install MongoDB as Service. Thus you must run run the batch files with Administrator privileges!
+
 # Configuration 
 
 - All config files are placed in `c:\MongoDB\config\` 
