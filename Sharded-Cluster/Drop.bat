@@ -14,12 +14,12 @@ call ".\Stop.bat"
 
 FOR /F %%B IN ('sc query MongoDB_Router ^| find "SERVICE_NAME"') DO (
 	sc config MongoDB_Router start=disabled
-	mongos.exe --config %CONFIG_BASE_DIR%\mongos.cfg --remove
+	mongos.exe --config %CONFIG_BASE_DIR%\mongoshard_s.cfg --remove
 )
 FOR /L %%A IN (1,1,%CONFIG%) DO (
 	FOR /F %%B IN ('sc query MongoDB_Config_%%A ^| find "SERVICE_NAME"') DO (
 		sc config MongoDB_Config_%%A start=disabled
-		mongod.exe --config %CONFIG_BASE_DIR%\mongocfg_%%A.cfg --remove
+		mongod.exe --config %CONFIG_BASE_DIR%\mongo_shard_%%A.cfg --remove
 	)
 	rmdir /S /Q %DATA_BASE_DIR%\mongocfg_%%A
 )
