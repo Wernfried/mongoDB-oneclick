@@ -35,7 +35,7 @@ FOR /L %%A IN (1,1,%SHARDS%) DO (
 	mongod.exe --config %CONFIG_BASE_DIR%\mongoshard_%%As.cfg --install
 	mongod.exe --config %CONFIG_BASE_DIR%\mongoshard_%%Aa.cfg --install
 )
-mongos.exe --config %CONFIG_BASE_DIR%\mongos.cfg --install
+mongos.exe --config %CONFIG_BASE_DIR%\mongoshard_s.cfg --install
 
 
 @echo ************************************************************
