@@ -45,10 +45,10 @@ mongors_1.cfg:  port: 27037
 mongors_2.cfg:  port: 27137
 mongors_3.cfg:  port: 27237
 
-mongos.cfg:  port: 27027
-mongocfg_1.cfg:  port: 27029
-mongocfg_2.cfg:  port: 27039
-mongocfg_3.cfg:  port: 27049
+mongoshard_s.cfg:  port: 27027
+mongoshard_conf_1.cfg:  port: 27029
+mongoshard_conf_2.cfg:  port: 27039
+mongoshard_conf_3.cfg:  port: 27049
 mongoshard_1p.cfg:  port: 27028
 mongoshard_2p.cfg:  port: 27038
 mongoshard_3p.cfg:  port: 27048
