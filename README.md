@@ -7,7 +7,7 @@ Scrit and config files are based on
 - [Deploy Replica Set With Keyfile Authentication](https://docs.mongodb.com/manual/tutorial/deploy-replica-set-with-keyfile-access-control/) 
 - [Deploy Sharded Cluster with Keyfile Authentication](https://docs.mongodb.com/manual/tutorial/deploy-sharded-cluster-with-keyfile-access-control/)
 
-This repository provides ready-to-use scripts to deploy
+This repository provides ready-to-use scripts to deploy on your localhost
 - Stand alone MongoDB
 - Replicat Set 
   - with 3 members (as recommended by MongoDB)     
