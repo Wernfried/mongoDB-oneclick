@@ -25,7 +25,7 @@ if /i {%ANSWER%}=={n} (
 
 FOR /L %%A IN (1,1,%CONFIG%) DO (
 	mkdir %DATA_BASE_DIR%\mongocfg_%%A
-	mongod.exe --config %CONFIG_BASE_DIR%\mongocfg_%%A.cfg --install
+	mongod.exe --config %CONFIG_BASE_DIR%\mongoshard_conf_%%A.cfg --install
 )
 FOR /L %%A IN (1,1,%SHARDS%) DO (
 	mkdir %DATA_BASE_DIR%\mongoshard_%%Ap
