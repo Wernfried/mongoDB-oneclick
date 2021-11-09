@@ -31,8 +31,8 @@ Script will install MongoDB as Service. Thus you must run the batch files with *
   - modify `.cfg` and `.bat` files accordingly, if needed
 - All data files are placed in `c:\MongoDB\data\` subfolders
   - modify `.cfg` and `.bat` files accordingly, if needed
-- All mongo servcies are created on `localhost`
-- All MongoDB's are crated with Authentication (you should **never** deploy a MongoDB without Authentication)
+- All mongo services are created on `localhost`
+- All MongoDB's are created with Authentication (you should **never** deploy a MongoDB without Authentication)
 - An admin user with root privilegers is created while setup
   - Username: `admin`
   - Password: `manager`
