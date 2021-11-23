@@ -23,7 +23,7 @@ if /i {%ANSWER%}=={n} (
 
 FOR /L %%A IN (1,1,%MEMBERS%) DO (
 	mkdir %DATA_BASE_DIR%\mongors_%%A
-	mongod.exe --config %CONFIG_BASE_DIR%\mongors_%%A.cfg --install --configExpand "exec"
+	mongod.exe --config %CONFIG_BASE_DIR%\mongors_%%A.cfg --install
 )
 
 @echo ************************************************************
