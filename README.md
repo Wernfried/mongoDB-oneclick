@@ -1,4 +1,4 @@
-# mongoDB-onelick
+# mongoDB-oneClick
 Create MongoDB with a single click
 
 MongoDB documentation provides tutorials to deploy a MongoDB on your machine. However, it might be a bit difficult if you start learning MongoDB.
