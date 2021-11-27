@@ -23,6 +23,8 @@ Of course, feel free to use the config files as base for your production environ
 
 Script will install MongoDB as Service. Thus you must run the batch files with **Administrator** privileges!
 
+Create your key file for internal authentication, see https://docs.mongodb.com/manual/tutorial/deploy-sharded-cluster-with-keyfile-access-control/#create-the-keyfile
+
 # Configuration 
 
 - All config files are placed in `c:\MongoDB\config\` 
