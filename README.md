@@ -3,7 +3,7 @@ Create MongoDB with a single click
 
 MongoDB documentation provides tutorials to deploy a MongoDB on your machine. However, it might be a bit difficult if you start learning MongoDB.
 
-Scrit and config files are based on 
+Script and config files are based on 
 - [Deploy Replica Set With Keyfile Authentication](https://docs.mongodb.com/manual/tutorial/deploy-replica-set-with-keyfile-access-control/) 
 - [Deploy Sharded Cluster with Keyfile Authentication](https://docs.mongodb.com/manual/tutorial/deploy-sharded-cluster-with-keyfile-access-control/)
 
