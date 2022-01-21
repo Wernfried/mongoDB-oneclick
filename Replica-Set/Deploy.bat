@@ -16,6 +16,17 @@ if /i {%ANSWER%}=={n} (
 
 @echo off
 
+IF NOT EXIST "%CONFIG_BASE_DIR%\mongo.key" (
+   openssl.exe version >nul 2>&1
+   IF ERRORLEVEL 1 (
+      echo OpenSSL.exe not found. 
+      echo Please download OpenSSL or create keyfile '%CONFIG_BASE_DIR%\mongo.key' manually
+      GOTO :EOF
+   )
+   @echo Create keyfile %CONFIG_BASE_DIR%\mongo.key
+   openssl.exe rand -base64 756 > %CONFIG_BASE_DIR%\mongo.key
+)
+
 
 @echo ************************************************************
 @echo Install Services

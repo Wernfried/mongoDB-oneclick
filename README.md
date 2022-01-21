@@ -23,6 +23,17 @@ Of course, feel free to use the config files as base for your production environ
 
 Script will install MongoDB as Service. Thus you must run the batch files with **Administrator** privileges!
 
+# Security
+All MongoDB's are created with Authentication (you should **never** deploy a MongoDB without Authentication)
+
+An admin user with root privilegers is created while setup (do not use these credentials in production deployment)
+  - Username: `admin`
+  - Password: `manager`
+
+Internal/Membership Authentication with Keyfile is enabled for Replicat Set and Sharded Cluster.
+Keyfile `c:\MongoDB\config\mongo.key` with random key is automatically created if not existing. 
+**Requires OpenSSL** which you can download from [OpenSSL Binaries](https://wiki.openssl.org/index.php/Binaries)
+
 # Configuration 
 
 - All config files are placed in `c:\MongoDB\config\` 
@@ -32,10 +43,6 @@ Script will install MongoDB as Service. Thus you must run the batch files with *
 - All data files are placed in `c:\MongoDB\data\` subfolders
   - modify `.cfg` and `.bat` files accordingly, if needed
 - All mongo services are created on `localhost`
-- All MongoDB's are created with Authentication (you should **never** deploy a MongoDB without Authentication)
-- An admin user with root privilegers is created while setup
-  - Username: `admin`
-  - Password: `manager`
 - Mongo services are configured on these ports:
 
 ```
