@@ -26,7 +26,7 @@ IF NOT EXIST "%CONFIG_BASE_DIR%\mongo.key" (
       GOTO :EOF
    )
    @echo Create keyfile %CONFIG_BASE_DIR%\mongo.key
-   openssl.exe rand -base64 756 > %CONFIG_BASE_DIR%\mongo.key
+   openssl.exe rand -base64 756 > "%CONFIG_BASE_DIR%\mongo.key"
 )
 
 
@@ -35,18 +35,18 @@ IF NOT EXIST "%CONFIG_BASE_DIR%\mongo.key" (
 @echo ************************************************************
 
 FOR /L %%A IN (1,1,%CONFIG%) DO (
-	mkdir %DATA_BASE_DIR%\mongocfg_%%A
-	mongod.exe --config %CONFIG_BASE_DIR%\mongoshard_conf_%%A.cfg --install
+	mkdir "%DATA_BASE_DIR%\mongocfg_%%A"
+	mongod.exe --config "%CONFIG_BASE_DIR%\mongoshard_conf_%%A.cfg" --install
 )
 FOR /L %%A IN (1,1,%SHARDS%) DO (
-	mkdir %DATA_BASE_DIR%\mongoshard_%%Ap
-	mkdir %DATA_BASE_DIR%\mongoshard_%%As
-	mkdir %DATA_BASE_DIR%\mongoshard_%%Aa
-	mongod.exe --config %CONFIG_BASE_DIR%\mongoshard_%%Ap.cfg --install
-	mongod.exe --config %CONFIG_BASE_DIR%\mongoshard_%%As.cfg --install
-	mongod.exe --config %CONFIG_BASE_DIR%\mongoshard_%%Aa.cfg --install
+	mkdir "%DATA_BASE_DIR%\mongoshard_%%Ap"
+	mkdir "%DATA_BASE_DIR%\mongoshard_%%As"
+	mkdir "%DATA_BASE_DIR%\mongoshard_%%Aa"
+	mongod.exe --config "%CONFIG_BASE_DIR%\mongoshard_%%Ap.cfg" --install
+	mongod.exe --config "%CONFIG_BASE_DIR%\mongoshard_%%As.cfg" --install
+	mongod.exe --config "%CONFIG_BASE_DIR%\mongoshard_%%Aa.cfg" --install
 )
-mongos.exe --config %CONFIG_BASE_DIR%\mongoshard_s.cfg --install
+mongos.exe --config "%CONFIG_BASE_DIR%\mongoshard_s.cfg" --install
 
 
 @echo ************************************************************

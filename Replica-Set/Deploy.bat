@@ -24,7 +24,7 @@ IF NOT EXIST "%CONFIG_BASE_DIR%\mongo.key" (
       GOTO :EOF
    )
    @echo Create keyfile %CONFIG_BASE_DIR%\mongo.key
-   openssl.exe rand -base64 756 > %CONFIG_BASE_DIR%\mongo.key
+   openssl.exe rand -base64 756 > "%CONFIG_BASE_DIR%\mongo.key"
 )
 
 
@@ -33,8 +33,8 @@ IF NOT EXIST "%CONFIG_BASE_DIR%\mongo.key" (
 @echo ************************************************************
 
 FOR /L %%A IN (1,1,%MEMBERS%) DO (
-	mkdir %DATA_BASE_DIR%\mongors_%%A
-	mongod.exe --config %CONFIG_BASE_DIR%\mongors_%%A.cfg --install
+	mkdir "%DATA_BASE_DIR%\mongors_%%A"
+	mongod.exe --config "%CONFIG_BASE_DIR%\mongors_%%A.cfg" --install
 )
 
 @echo ************************************************************

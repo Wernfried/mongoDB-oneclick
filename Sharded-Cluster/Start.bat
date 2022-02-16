@@ -7,14 +7,14 @@ set CONFIG=3
 @echo Start Services
 @echo ************************************************************
 
-FOR /F %%B IN ('sc query MongoDB_Router ^| find "SERVICE_NAME"') DO sc start MongoDB_Router
+FOR /F %%B IN ('sc query MongoDB_Router ^| find "SERVICE_NAME"') DO net start MongoDB_Router
 FOR /L %%A IN (1,1,%CONFIG%) DO (
-	FOR /F %%B IN ('sc query MongoDB_Config_%%A ^| find "SERVICE_NAME"') DO sc start MongoDB_Config_%%A
+	FOR /F %%B IN ('sc query MongoDB_Config_%%A ^| find "SERVICE_NAME"') DO net start MongoDB_Config_%%A
 )
 FOR /L %%A IN (1,1,%SHARDS%) DO (
-	FOR /F %%B IN ('sc query MongoDB_Shard_%%Ap ^| find "SERVICE_NAME"') DO sc start MongoDB_Shard_%%Ap
-	FOR /F %%B IN ('sc query MongoDB_Shard_%%As ^| find "SERVICE_NAME"') DO sc start MongoDB_Shard_%%As
-	FOR /F %%B IN ('sc query MongoDB_Shard_%%Aa ^| find "SERVICE_NAME"') DO sc start MongoDB_Shard_%%Aa
+	FOR /F %%B IN ('sc query MongoDB_Shard_%%Ap ^| find "SERVICE_NAME"') DO net start MongoDB_Shard_%%Ap
+	FOR /F %%B IN ('sc query MongoDB_Shard_%%As ^| find "SERVICE_NAME"') DO net start MongoDB_Shard_%%As
+	FOR /F %%B IN ('sc query MongoDB_Shard_%%Aa ^| find "SERVICE_NAME"') DO net start MongoDB_Shard_%%Aa
 )
 
 

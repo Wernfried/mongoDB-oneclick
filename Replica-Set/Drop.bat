@@ -14,10 +14,10 @@ set CONFIG_BASE_DIR=c:\MongoDB\config
 FOR /L %%A IN (1,1,%MEMBERS%) DO (
 	FOR /F %%B IN ('sc query MongoDB_ReplicaSet_%%A ^| find "SERVICE_NAME"') DO (
 		sc config MongoDB_ReplicaSet_%%A start=disabled
-		mongod.exe --config %CONFIG_BASE_DIR%\mongors_%%A.cfg --remove
-		rmdir /S /Q %DATA_BASE_DIR%\mongors_%%A
+		mongod.exe --config "%CONFIG_BASE_DIR%\mongors_%%A.cfg" --remove
+		rmdir /S /Q "%DATA_BASE_DIR%\mongors_%%A"
 	)
 
-	rmdir /S /Q %DATA_BASE_DIR%\mongors_%%A
+	rmdir /S /Q "%DATA_BASE_DIR%\mongors_%%A"
 )
 
