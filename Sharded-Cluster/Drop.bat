@@ -21,7 +21,7 @@ FOR /L %%A IN (1,1,%CONFIG%) DO (
 		sc config MongoDB_Config_%%A start=disabled
 		mongod.exe --config "%CONFIG_BASE_DIR%\mongo_shard_%%A.cfg" --remove
 		REM Alternative way to delete service:
-		REM sc delete MongoDB_Config_%%A
+		REM sc.exe delete MongoDB_Config_%%A
 	)
 	rmdir /S /Q "%DATA_BASE_DIR%\mongocfg_%%A"
 )
@@ -31,19 +31,19 @@ FOR /L %%A IN (1,1,%SHARDS%) DO (
 		sc config MongoDB_Shard_%%Ap start=disabled
 		mongod.exe --config "%CONFIG_BASE_DIR%\mongoshard_%%Ap.cfg" --remove
 		REM Alternative way to delete service:
-		REM sc delete MongoDB_Shard_%%Ap
+		REM sc.exe delete MongoDB_Shard_%%Ap
 	)
 	FOR /F %%B IN ('sc query MongoDB_Shard_%%As ^| find "SERVICE_NAME"') DO (
 		sc config MongoDB_Shard_%%As start=disabled
 		mongod.exe --config "%CONFIG_BASE_DIR%\mongoshard_%%As.cfg" --remove
 		REM Alternative way to delete service:
-		REM sc delete MongoDB_Shard_%%As
+		REM sc.exe delete MongoDB_Shard_%%As
 	)
 	FOR /F %%B IN ('sc query MongoDB_Shard_%%Aa ^| find "SERVICE_NAME"') DO (
 		sc config MongoDB_Shard_%%Aa start=disabled
 		mongod.exe --config "%CONFIG_BASE_DIR%\mongoshard_%%Aa.cfg" --remove
 		REM Alternative way to delete service:
-		REM sc delete MongoDB_Shard_%%Aa
+		REM sc.exe delete MongoDB_Shard_%%Aa
 	)
 
 	rmdir /S /Q "%DATA_BASE_DIR%\mongoshard_%%Ap"
