@@ -15,6 +15,8 @@ FOR /L %%A IN (1,1,%MEMBERS%) DO (
 	FOR /F %%B IN ('sc query MongoDB_ReplicaSet_%%A ^| find "SERVICE_NAME"') DO (
 		sc config MongoDB_ReplicaSet_%%A start=disabled
 		mongod.exe --config "%CONFIG_BASE_DIR%\mongors_%%A.cfg" --remove
+		REM Alternative way to delete service:
+		REM sc delete MongoDB_ReplicaSet_%%A
 		rmdir /S /Q "%DATA_BASE_DIR%\mongors_%%A"
 	)
 
