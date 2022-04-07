@@ -1,5 +1,5 @@
 # mongoDB-oneClick
-Create MongoDB with a single click
+Create MongoDB with a single click on a Windows system
 
 MongoDB documentation provides tutorials to deploy a MongoDB on your machine. However, it might be a bit difficult if you start learning MongoDB.
 
@@ -26,7 +26,7 @@ Script will install MongoDB as Service. Thus you must run the batch files with *
 # Security
 All MongoDB's are created with Authentication (you should **never** deploy a MongoDB without Authentication)
 
-An admin user with root privilegers is created while setup (do not use these credentials in production deployment)
+An admin user with root privilegers is created while setup, do not use these credentials in production deployment.
   - Username: `admin`
   - Password: `manager`
 
