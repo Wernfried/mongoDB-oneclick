@@ -5,8 +5,8 @@ set CONFIG=3
 set DATA_BASE_DIR=c:\MongoDB\data
 set CONFIG_BASE_DIR=c:\MongoDB\config
 
-call ".\Stop.bat"
-call ".\Drop.bat"
+
+call "%~dp0\Drop.bat"
 
 
 echo.
@@ -59,7 +59,7 @@ FOR /L %%A IN (1,1,%CONFIG%) DO net start MongoDB_Config_%%A
 @echo ************************************************************
 @echo Initialize Config-Server ReplicatSet
 @echo ************************************************************
-mongo --norc localhost:27029 .\Config.js
+mongo --norc localhost:27029 "%~dp0\Config.js"
 
 @echo ************************************************************
 @echo Start Shard-Server ReplicatSet services
@@ -77,7 +77,7 @@ FOR /L %%A IN (1,1,%SHARDS%) DO (
 SETLOCAL EnableDelayedExpansion
 SET PORT=27028
 FOR /L %%A IN (1,1,%SHARDS%) DO (
-	mongo --norc localhost:!PORT! --eval "p = !PORT!; shardId = 'shard_0%%A';" .\Shard_PSA.js
+	mongo --norc localhost:!PORT! --eval "p = !PORT!; shardId = 'shard_0%%A';" "%~dp0\Shard_PSA.js"
 	SET /A "PORT=PORT+10" 
 )
 

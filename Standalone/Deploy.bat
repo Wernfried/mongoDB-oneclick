@@ -1,6 +1,6 @@
 @echo off
 
-call ".\Drop.bat"
+call "%~dp0\Drop.bat"
 
 set DATA_BASE_DIR=c:\MongoDB\data
 set CONFIG_BASE_DIR=c:\MongoDB\config

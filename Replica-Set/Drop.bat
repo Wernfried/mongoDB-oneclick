@@ -1,6 +1,6 @@
 @echo off
 
-call ".\Stop.bat"
+call "%~dp0\Stop.bat"
 
 set MEMBERS=3
 set DATA_BASE_DIR=c:\MongoDB\data
