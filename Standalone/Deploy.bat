@@ -1,6 +1,6 @@
 @echo off
 
-call "%~dp0\Drop.bat"
+call "%~dp0Drop.bat"
 
 set DATA_BASE_DIR=c:\MongoDB\data
 set CONFIG_BASE_DIR=c:\MongoDB\config
@@ -29,7 +29,7 @@ mongod.exe --config "%CONFIG_BASE_DIR%\mongod.cfg" --install
 
 net start MongoDB_Standalone
 
-mongo --norc localhost:27017 --eval "db.getSiblingDB('admin').createUser({ user: 'admin', pwd: 'manager', roles: ['root'] })"
+mongosh --norc localhost:27017 --eval "db.getSiblingDB('admin').createUser({ user: 'admin', pwd: 'manager', roles: ['root'] })"
 
 
 

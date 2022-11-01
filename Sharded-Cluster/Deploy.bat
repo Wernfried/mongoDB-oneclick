@@ -6,7 +6,7 @@ set DATA_BASE_DIR=c:\MongoDB\data
 set CONFIG_BASE_DIR=c:\MongoDB\config
 
 
-call "%~dp0\Drop.bat"
+call "%~dp0Drop.bat"
 
 
 echo.
@@ -59,7 +59,7 @@ FOR /L %%A IN (1,1,%CONFIG%) DO net start MongoDB_Config_%%A
 @echo ************************************************************
 @echo Initialize Config-Server ReplicatSet
 @echo ************************************************************
-mongo --norc localhost:27029 "%~dp0\Config.js"
+mongo --norc localhost:27029 "%~dp0Config.js"
 
 @echo ************************************************************
 @echo Start Shard-Server ReplicatSet services
@@ -77,7 +77,7 @@ FOR /L %%A IN (1,1,%SHARDS%) DO (
 SETLOCAL EnableDelayedExpansion
 SET PORT=27028
 FOR /L %%A IN (1,1,%SHARDS%) DO (
-	mongo --norc localhost:!PORT! --eval "p = !PORT!; shardId = 'shard_0%%A';" "%~dp0\Shard_PSA.js"
+	mongo --norc localhost:!PORT! --eval "p = !PORT!; shardId = 'shard_0%%A';" "%~dp0Shard_PSA.js"
 	SET /A "PORT=PORT+10" 
 )
 
@@ -91,19 +91,19 @@ net start MongoDB_Router
 @echo ************************************************************
 @echo Create admin user
 @echo ************************************************************
-mongo --norc localhost:27027 --eval "db.getSiblingDB('admin').createUser({ user: 'admin', pwd: 'manager', roles: ['root'] })"
+mongosh --norc localhost:27027 --eval "db.getSiblingDB('admin').createUser({ user: 'admin', pwd: 'manager', roles: ['root'] })"
 
 
 @echo ************************************************************
 @echo Add Shards
 @echo ************************************************************
-mongo -u admin -p manager --authenticationDatabase admin --norc localhost:27027/admin --eval "for (i = 1; i <= 3; i++) { sh.addShard('shard_0'+i+'/localhost:' + (27018 + 10*i)) }"
+mongosh -u admin -p manager --authenticationDatabase admin --norc localhost:27027/admin --eval "for (i = 1; i <= 3; i++) { sh.addShard('shard_0'+i+'/localhost:' + (27018 + 10*i)) }"
 
 
 @echo ************************************************************
 @echo Print Sharded Cluster members
 @echo ************************************************************
-mongo -u admin -p manager --authenticationDatabase admin --norc localhost:27027/admin --eval "db.adminCommand('getShardMap').map"
+mongosh -u admin -p manager --authenticationDatabase admin --norc localhost:27027/admin --eval "db.adminCommand('getShardMap').map"
 
 
 

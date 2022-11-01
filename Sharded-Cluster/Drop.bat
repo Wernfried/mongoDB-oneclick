@@ -5,7 +5,7 @@ set CONFIG=3
 set DATA_BASE_DIR=c:\MongoDB\data
 set CONFIG_BASE_DIR=c:\MongoDB\config
 
-call "%~dp0\Stop.bat"
+call "%~dp0Stop.bat"
 
 
 @echo ************************************************************

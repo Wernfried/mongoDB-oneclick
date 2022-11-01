@@ -1,6 +1,6 @@
 @echo off
 
-call "%~dp0\Drop.bat"
+call "%~dp0Drop.bat"
 
 set MEMBERS=3
 set DATA_BASE_DIR=c:\MongoDB\data
@@ -44,8 +44,8 @@ FOR /L %%A IN (1,1,%MEMBERS%) DO (
 FOR /L %%A IN (1,1,%MEMBERS%) DO net start MongoDB_ReplicaSet_%%A
 
 @echo Initialize ReplicatSet
-mongo --norc localhost:27037 "%~dp0\ReplicaSet.js"
-mongo --norc localhost:27037 --eval "db.getSiblingDB('admin').createUser({ user: 'admin', pwd: 'manager', roles: ['root'] })"
+mongosh --norc localhost:27037 "%~dp0ReplicaSet.js"
+mongosh --norc localhost:27037 --eval "db.getSiblingDB('admin').createUser({ user: 'admin', pwd: 'manager', roles: ['root'] })"
 
 
 
