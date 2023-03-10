@@ -4,6 +4,7 @@ Create MongoDB with a single click on a Windows system
 MongoDB documentation provides tutorials to deploy a MongoDB on your machine. However, it might be a bit difficult if you start learning MongoDB.
 
 Script and config files are based on 
+- [Use SCRAM to Authenticate Clients](https://www.mongodb.com/docs/manual/tutorial/configure-scram-client-authentication/)
 - [Deploy Replica Set With Keyfile Authentication](https://docs.mongodb.com/manual/tutorial/deploy-replica-set-with-keyfile-access-control/) 
 - [Deploy Sharded Cluster with Keyfile Authentication](https://docs.mongodb.com/manual/tutorial/deploy-sharded-cluster-with-keyfile-access-control/)
 
