@@ -29,15 +29,5 @@ mongod.exe --config "%CONFIG_BASE_DIR%\mongod.cfg" --install
 
 net start MongoDB_Standalone
 
-mongosh --norc localhost:27017 --eval "db.getSiblingDB('admin').createUser({ user: 'admin', pwd: 'manager', roles: ['root'] })"
-
-
-
-
-
-
-
-
-
-
+mongosh "mongodb://localhost:27017/admin" --eval "db.getSiblingDB('admin').createUser({ user: 'admin', pwd: 'manager', roles: ['root'] })"
 

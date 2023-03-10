@@ -10,6 +10,6 @@ rs.initiate(
 )
 rs.status()
 
-while (! db.isMaster().ismaster ) { sleep(1000) }
+while (! db.hello().isWritablePrimary ) { sleep(1000) }
 
 

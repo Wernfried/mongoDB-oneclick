@@ -44,8 +44,8 @@ FOR /L %%A IN (1,1,%MEMBERS%) DO (
 FOR /L %%A IN (1,1,%MEMBERS%) DO net start MongoDB_ReplicaSet_%%A
 
 @echo Initialize ReplicatSet
-mongosh --norc localhost:27037 "%~dp0ReplicaSet.js"
-mongosh --norc localhost:27037 --eval "db.getSiblingDB('admin').createUser({ user: 'admin', pwd: 'manager', roles: ['root'] })"
+mongosh "mongodb://localhost:27037/admin?readPreference=primaryPreferred" "%~dp0ReplicaSet.js"
+mongosh "mongodb://localhost:27037/admin?readPreference=primaryPreferred" --eval "db.getSiblingDB('admin').createUser({ user: 'admin', pwd: 'manager', roles: ['root'] })"
 
 
 
